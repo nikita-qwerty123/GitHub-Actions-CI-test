@@ -9,6 +9,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "test-example": "npx playwright test example.spec.ts --project=chromium",
     "dockerTest": "npx playwright test uiComponent.spec.ts --project=chromium"
   },
   "overrides": {

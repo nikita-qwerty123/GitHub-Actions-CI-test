@@ -1,4 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
+import { argosScreenshot } from "@argos-ci/playwright";
 
 test.beforeEach(async ({ page }) => {
   await page.goto('https://demo.playwright.dev/todomvc');
@@ -14,6 +15,7 @@ test.describe('New Todo', () => {
   test('should allow me to add todo items', async ({ page }) => {
     // create a new todo locator
     const newTodo = page.getByPlaceholder('What needs to be done?');
+        await argosScreenshot(page, "what ?");
 
     // Create 1st todo.
     await newTodo.fill(TODO_ITEMS[0]);
