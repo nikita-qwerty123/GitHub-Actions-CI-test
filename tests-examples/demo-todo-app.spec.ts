@@ -15,16 +15,14 @@ test.describe('New Todo', () => {
   test('should allow me to add todo items', async ({ page }) => {
     // create a new todo locator
     const newTodo = page.getByPlaceholder('What needs to be done?');
-        await argosScreenshot(page, "what ?");
 
     // Create 1st todo.
     await newTodo.fill(TODO_ITEMS[0]);
     await newTodo.press('Enter');
 
     // Make sure the list only has one todo item.
-    await expect(page.getByTestId('todo-title')).toHaveText([
-      TODO_ITEMS[0]
-    ]);
+    await expect(page.getByTestId('todo-title')).toHaveText("test fail");
+        await argosScreenshot(page, "todo-title ?");
 
     // Create 2nd todo.
     await newTodo.fill(TODO_ITEMS[1]);
