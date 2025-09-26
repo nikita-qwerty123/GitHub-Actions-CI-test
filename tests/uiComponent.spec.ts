@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { EMSGSIZE } from 'constants'
+import { argosScreenshot } from "@argos-ci/playwright";
+
 
 test.beforeEach(async ({ page }) => {
     await page.goto("http://localhost:4200/pages/iot-dashboard")
@@ -20,6 +22,7 @@ test.describe('Form layouts page', () => {
         await usingTheGridEmailInput.fill('test@test.com')
         await usingTheGridEmailInput.clear()
         await usingTheGridEmailInput.pressSequentially('test2@test.com', { delay: 500 })
+        await argosScreenshot(page, "fill form");
 
 
         //generic assertion
